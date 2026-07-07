@@ -6,9 +6,9 @@
     <meta name="description" content="Morva Koffi is a takeaway seaside coffee shop near Barnoon Long Stay car park in St Ives, serving locally roasted coffee, homemade cakes, and savoury bakes.">
     <title>Morva Koffi | Seaside Coffee in St Ives</title>
     <link rel="preload" href="assets/morva-exterior-2025.jpg" as="image">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=20260707-visit-fix">
     <script src="vendor/gsap.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260707-visit-fix" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -206,24 +206,30 @@
 
           <div class="visit-stack">
             <figure class="map-card motion-card" data-reveal>
-              <iframe
-                title="Interactive Google map preview for Morva Koffi in St Ives"
-                src="https://maps.google.com/maps?ll=50.21421,-5.48293&q=50.21421,-5.48293&z=17&output=embed"
-                loading="eager"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+              <div class="map-embed">
+                <img class="map-fallback-image" src="assets/morva-find-us-map.png" alt="" width="799" height="526" aria-hidden="true">
+                <iframe
+                  data-map-frame
+                  title="Interactive Google map preview for Morva Koffi in St Ives"
+                  src="https://maps.google.com/maps?ll=50.21421,-5.48293&q=50.21421,-5.48293&z=17&output=embed"
+                  loading="eager"
+                  onload="this.classList.add('is-loaded')"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
               <figcaption>
                 Drag or zoom the map to preview the area.
                 <a href="https://maps.app.goo.gl/NSTuSgnKxuoV4xEH7" target="_blank" rel="noopener">Open in Google Maps</a>
               </figcaption>
             </figure>
 
-            <figure class="route-card motion-card" data-reveal>
+            <details class="route-card motion-card" data-reveal>
+              <summary>Show official walking guide</summary>
               <a class="map-image-link" href="https://maps.app.goo.gl/NSTuSgnKxuoV4xEH7" target="_blank" rel="noopener" aria-label="Open Morva Koffi route guide in Google Maps">
                 <img src="assets/morva-find-us-map.png" alt="Morva Koffi location guide showing the route from Barnoon car park toward the cafe" width="799" height="526">
               </a>
-              <figcaption>Official walking guide from the Morva Koffi website.</figcaption>
-            </figure>
+              <p>Official walking guide from the Morva Koffi website.</p>
+            </details>
 
             <aside class="facts-card motion-card" data-reveal aria-label="Visit facts">
               <dl>

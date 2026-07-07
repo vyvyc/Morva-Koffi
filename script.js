@@ -11,28 +11,52 @@ const sectionsById = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-if ("IntersectionObserver" in window && navLinks.length && sectionsById.length) {
-  const navObserver = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+if (navLinks.length && sectionsById.length) {
+  const setCurrentNav = (sectionId) => {
+    navLinks.forEach((link) => {
+      const isCurrent = link.getAttribute("href") === `#${sectionId}`;
+      if (isCurrent) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  };
 
-      if (!visible) return;
+  const getActiveSectionId = () => {
+    const probeY = window.scrollY + Math.min(window.innerHeight * 0.38, 360);
+    return sectionsById.reduce((current, section) => (
+      section.offsetTop <= probeY ? section : current
+    ), sectionsById[0]).id;
+  };
 
-      navLinks.forEach((link) => {
-        const isCurrent = link.getAttribute("href") === `#${visible.target.id}`;
-        if (isCurrent) {
-          link.setAttribute("aria-current", "page");
-        } else {
-          link.removeAttribute("aria-current");
-        }
-      });
-    },
-    { threshold: [0.24, 0.42], rootMargin: "-18% 0px -62% 0px" }
-  );
+  let navFrame = null;
+  const queueNavUpdate = () => {
+    if (navFrame) return;
+    navFrame = window.requestAnimationFrame(() => {
+      navFrame = null;
+      setCurrentNav(getActiveSectionId());
+    });
+  };
 
-  sectionsById.forEach((section) => navObserver.observe(section));
+  window.addEventListener("scroll", queueNavUpdate, { passive: true });
+  window.addEventListener("resize", queueNavUpdate);
+  window.addEventListener("hashchange", queueNavUpdate);
+  window.addEventListener("load", queueNavUpdate);
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      const targetId = link.getAttribute("href").slice(1);
+      setCurrentNav(targetId);
+      window.setTimeout(queueNavUpdate, 260);
+    });
+  });
+
+  const hashTarget = window.location.hash && document.querySelector(window.location.hash);
+  if (hashTarget) {
+    setCurrentNav(hashTarget.id);
+  }
+
+  queueNavUpdate();
 }
 
 const hero = document.querySelector("[data-hero]");
@@ -50,6 +74,13 @@ if (hero && header && "IntersectionObserver" in window) {
 
 const menuTabs = Array.from(document.querySelectorAll("[data-menu-tab]"));
 const menuPanels = Array.from(document.querySelectorAll("[data-menu-panel]"));
+const mapFrame = document.querySelector("[data-map-frame]");
+
+if (mapFrame) {
+  mapFrame.addEventListener("load", () => {
+    mapFrame.classList.add("is-loaded");
+  });
+}
 
 menuTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
@@ -172,6 +203,10 @@ if (reduceMotion || !gsapAvailable) {
       return Array.from(target.querySelectorAll("dl div"));
     }
 
+    if (target.matches(".route-card")) {
+      return Array.from(target.querySelectorAll("summary, .map-image-link, p"));
+    }
+
     if (target.matches(".faq-list")) {
       return Array.from(target.querySelectorAll("details"));
     }
@@ -228,7 +263,7 @@ if (reduceMotion || !gsapAvailable) {
     }
 
     const image = target.matches(".story-image, .map-card, .route-card")
-      ? target.querySelector("img, iframe")
+      ? target.querySelector("img, .map-embed")
       : null;
 
     if (image) {
@@ -244,7 +279,7 @@ if (reduceMotion || !gsapAvailable) {
     const profile = revealProfileFor(target);
     const details = detailTargetsFor(target);
     const image = target.matches(".story-image, .map-card, .route-card")
-      ? target.querySelector("img, iframe")
+      ? target.querySelector("img, .map-embed")
       : null;
 
     target.classList.add("is-visible");
