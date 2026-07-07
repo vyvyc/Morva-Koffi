@@ -21,8 +21,9 @@ Used for: the latest shopfront/exterior hero image and the public address wordin
 ## Location Cross-check
 
 - Mapcarta: https://mapcarta.com/W999577905
+- Google Maps: https://maps.app.goo.gl/NSTuSgnKxuoV4xEH7
 
-Used for: cafe classification, nearby landmarks, coordinates `50.21421, -5.48293`, and OpenStreetMap cross-check.
+Used for: cafe classification, nearby landmarks, coordinates `50.21421, -5.48293`, the draggable in-page map preview, and the Google Maps call-to-action links.
 
 ## Social Updates
 

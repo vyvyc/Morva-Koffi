@@ -180,7 +180,7 @@ if (reduceMotion || !gsapAvailable) {
   };
 
   const revealProfileFor = (target) => {
-    if (target.matches(".story-image, .menu-board, .map-card, .facts-card, .supplier-ledger, .time-table, .faq-list")) {
+    if (target.matches(".story-image, .menu-board, .map-card, .route-card, .facts-card, .supplier-ledger, .time-table, .faq-list")) {
       return {
         from: {
           autoAlpha: 0,
@@ -227,8 +227,8 @@ if (reduceMotion || !gsapAvailable) {
       });
     }
 
-    const image = target.matches(".story-image, .map-card")
-      ? target.querySelector("img")
+    const image = target.matches(".story-image, .map-card, .route-card")
+      ? target.querySelector("img, iframe")
       : null;
 
     if (image) {
@@ -243,8 +243,8 @@ if (reduceMotion || !gsapAvailable) {
   const runReveal = (target) => {
     const profile = revealProfileFor(target);
     const details = detailTargetsFor(target);
-    const image = target.matches(".story-image, .map-card")
-      ? target.querySelector("img")
+    const image = target.matches(".story-image, .map-card, .route-card")
+      ? target.querySelector("img, iframe")
       : null;
 
     target.classList.add("is-visible");

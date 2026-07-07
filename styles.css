@@ -647,6 +647,7 @@ section {
 }
 
 .map-card,
+.route-card,
 .facts-card,
 .time-table,
 .faq-list {
@@ -656,6 +657,16 @@ section {
   overflow: hidden;
 }
 
+.map-card iframe {
+  display: block;
+  width: 100%;
+  height: min(56vw, 420px);
+  min-height: 340px;
+  border: 0;
+  background: var(--salt);
+}
+
+.route-card img,
 .map-card img {
   width: 100%;
   max-height: 420px;
@@ -678,14 +689,16 @@ section {
   transform: scale(1.01);
 }
 
-.map-card figcaption {
+.map-card figcaption,
+.route-card figcaption {
   padding: 0.8rem 1rem;
   color: var(--muted);
   font-size: 0.86rem;
   border-top: 1px solid var(--line);
 }
 
-.map-card figcaption a {
+.map-card figcaption a,
+.route-card figcaption a {
   color: var(--sea-deep);
   font-weight: 800;
 }
