@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Morva Koffi is a takeaway seaside coffee shop near Barnoon Long Stay car park in St Ives, serving locally roasted coffee, homemade cakes, and savoury bakes.">
+    <title>Morva Koffi | Seaside Coffee in St Ives</title>
+    <link rel="preload" href="assets/morva-exterior-2025.jpg" as="image">
+    <link rel="stylesheet" href="styles.css">
+    <script src="vendor/gsap.min.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Morva Koffi home">
+        <img src="assets/morva-logo-cup.png" alt="" width="42" height="42">
+        <span>
+          <span class="brand-note">Seaside coffee · St Ives</span>
+          <span class="brand-name">Morva Koffi</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#home" aria-current="page">The Koffi</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#suppliers">Local</a></li>
+          <li><a href="#visit">Visit</a></li>
+          <li><a href="https://www.facebook.com/morvakoffi" target="_blank" rel="noopener">Updates</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="home" aria-labelledby="hero-title" data-hero>
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/morva-exterior-2025.jpg" alt="">
+        </div>
+
+        <div class="hero-inner">
+          <p class="kicker" data-reveal>Near Barnoon · Porthmeor path · St Ives</p>
+          <h1 id="hero-title" data-reveal>
+            Seaside coffee.<br>
+            Fresh cakes.<br>
+            Barnoon bakes.
+          </h1>
+          <p class="hero-copy" data-reveal>
+            A small coastal counter for fresh bakes, espresso, sausage rolls, and coffee before the beach.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a class="button primary" href="#menu">See the menu</a>
+            <a class="button secondary" href="#visit">Find us</a>
+          </div>
+        </div>
+
+        <aside class="hero-strip" aria-label="Quick visit details">
+          <a href="#visit">
+            <span>Find us</span>
+            <strong>Bottom left of Barnoon Long Stay car park</strong>
+          </a>
+          <a href="#hours">
+            <span>Open</span>
+            <strong>Mon-Fri 9.30-13.30, weather dependent</strong>
+          </a>
+          <a href="#menu">
+            <span>On the menu</span>
+            <strong>Knockout espresso · cakes · sausage rolls</strong>
+          </a>
+          <a href="https://instagram.com/morvakoffi" target="_blank" rel="noopener">
+            <span>Social</span>
+            <strong>Check same-day updates</strong>
+          </a>
+        </aside>
+      </section>
+
+      <section class="story-section section-shell" id="story" aria-labelledby="story-title">
+        <div class="story-layout">
+          <figure class="story-image motion-card" data-reveal>
+            <img src="assets/morva-hero-oldsite.jpg" alt="Porthmeor beach and St Ives coastline near Morva Koffi at golden hour" width="2048" height="1152">
+          </figure>
+
+          <div class="story-copy" data-reveal>
+            <p class="fine-label">The counter</p>
+            <h2 id="story-title">Coffee and bakes for the walk between Barnoon and Porthmeor.</h2>
+            <p>
+              Morva Koffi is takeaway only, with a small bench outside and public seating close by near Barnoon car park and Tate St Ives.
+            </p>
+            <ul class="feature-list" aria-label="Morva Koffi highlights">
+              <li>Locally roasted coffee from Penryn.</li>
+              <li>Small-batch cakes made on the premises.</li>
+              <li>Sandwich and pastry ingredients sourced locally where possible.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu" aria-labelledby="menu-title">
+        <div class="section-shell">
+          <div class="section-heading" data-reveal>
+            <p class="fine-label">Today's shape</p>
+            <h2 id="menu-title">A compact menu with serious coffee, Cornish bakes, and fresh savoury options.</h2>
+            <p>
+              Availability changes by season and batch. Ask at the counter about allergens, gluten-free, vegan, and daily specials.
+            </p>
+          </div>
+
+          <div class="menu-board motion-card" data-reveal>
+            <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+              <button class="menu-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="coffee-panel" id="coffee-tab" data-menu-tab="coffee">Coffee</button>
+              <button class="menu-tab" type="button" role="tab" aria-selected="false" aria-controls="cakes-panel" id="cakes-tab" data-menu-tab="cakes">Cakes</button>
+              <button class="menu-tab" type="button" role="tab" aria-selected="false" aria-controls="savoury-panel" id="savoury-tab" data-menu-tab="savoury">Savoury</button>
+              <button class="menu-tab" type="button" role="tab" aria-selected="false" aria-controls="cold-panel" id="cold-tab" data-menu-tab="cold">Other drinks</button>
+            </div>
+
+            <div class="menu-panels">
+              <article class="menu-panel is-active" id="coffee-panel" role="tabpanel" aria-labelledby="coffee-tab" data-menu-panel="coffee">
+                <div>
+                  <span>House coffee</span>
+                  <h3>Knockout espresso, pulled for the coast path.</h3>
+                  <p>Americano, espresso, cortado, macchiato, flat white, latte, cappuccino, and mocha.</p>
+                </div>
+                <ul>
+                  <li><strong>Flat White</strong><span>Double short shot with steamed milk in an 8oz cup.</span></li>
+                  <li><strong>Mocha</strong><span>58% Kokoa chocolate with espresso and steamed milk.</span></li>
+                  <li><strong>Cold Brew</strong><span>Batch brew for warmer days and beach walks.</span></li>
+                </ul>
+              </article>
+
+              <article class="menu-panel" id="cakes-panel" role="tabpanel" aria-labelledby="cakes-tab" data-menu-panel="cakes" hidden>
+                <div>
+                  <span>Small batch</span>
+                  <h3>Cakes made with local butter, eggs, and proper details.</h3>
+                  <p>Daily bakes vary, with gluten-free and vegan-friendly options often available.</p>
+                </div>
+                <ul>
+                  <li><strong>Guinness Cake</strong><span>Dense chocolate cake with cream-cheese frosting.</span></li>
+                  <li><strong>Heavy Cake (Hevva)</strong><span>All-butter Cornish cake adapted from a family recipe.</span></li>
+                  <li><strong>Dark Chocolate Espresso Brownie</strong><span>Fairtrade chocolate and Knockout espresso.</span></li>
+                </ul>
+              </article>
+
+              <article class="menu-panel" id="savoury-panel" role="tabpanel" aria-labelledby="savoury-tab" data-menu-panel="savoury" hidden>
+                <div>
+                  <span>Fresh daily</span>
+                  <h3>Sausage rolls, croissants, bites, soups, and seasonal bowls.</h3>
+                  <p>The savoury counter changes with season and weather, especially out of peak season.</p>
+                </div>
+                <ul>
+                  <li><strong>Homemade Sausage Rolls</strong><span>Pastry and Trevaskis Farm pork mince.</span></li>
+                  <li><strong>Caprese Croissant</strong><span>Mozzarella, sun-dried tomatoes, and fresh basil pesto.</span></li>
+                  <li><strong>Friday Dahl</strong><span>Butternut squash, roasted cauliflower, red lentils, and mini naan.</span></li>
+                </ul>
+              </article>
+
+              <article class="menu-panel" id="cold-panel" role="tabpanel" aria-labelledby="cold-tab" data-menu-panel="cold" hidden>
+                <div>
+                  <span>Also pouring</span>
+                  <h3>Tea, hot chocolate, cold cans, and fairtrade soft drinks.</h3>
+                  <p>Expect Cornish Tea, Teapigs, Kokoa Collection chocolate, Lemonaid, Charitea, Fentimans, Cawston Press, Rio, and Coca Cola.</p>
+                </div>
+                <ul>
+                  <li><strong>Hot Chocolate</strong><span>Classic, smooth, white, and flaked chocolate options.</span></li>
+                  <li><strong>Speciality Tea</strong><span>Earl Grey, lemon and ginger, peppermint, chamomile, green, and rooibos.</span></li>
+                  <li><strong>Cold Drinks</strong><span>Jolly's water, organic soft drinks, cans, and children's juice.</span></li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="suppliers-section section-shell" id="suppliers" aria-labelledby="suppliers-title">
+        <div class="suppliers-copy" data-reveal>
+          <p class="fine-label">Local pantry</p>
+          <h2 id="suppliers-title">The menu is built from local suppliers, not anonymous stock.</h2>
+          <p>
+            Morva Koffi names its sources: Kig and Keus, The Cornish Larder Company, Paul's Bakery, Trewithen Dairy, Colin Carter's, Trevaskis Farm butchery, and Katjacks.
+          </p>
+        </div>
+
+        <div class="supplier-ledger motion-card" data-reveal aria-label="Supplier and product notes">
+          <div><span>Butter & dairy</span><strong>Trewithen Dairy</strong></div>
+          <div><span>Bakery</span><strong>Paul's Bakery</strong></div>
+          <div><span>Butchery</span><strong>Trevaskis Farm</strong></div>
+          <div><span>Flapjacks</span><strong>Katjacks</strong></div>
+          <div><span>Larder</span><strong>Cornish Larder</strong></div>
+          <div><span>Roast</span><strong>Penryn coffee roasters</strong></div>
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="section-shell visit-layout">
+          <div class="visit-copy" data-reveal>
+            <p class="fine-label">Find us</p>
+            <h2 id="visit-title">Look for the shopfront near the bottom left of Barnoon Long Stay car park.</h2>
+            <p>
+              Public listings place Morva Koffi on Clodgy View West, St Ives TR26 1JF, close to Tate St Ives and the path toward Porthmeor.
+            </p>
+            <div class="visit-actions">
+              <a class="button primary" href="https://maps.app.goo.gl/NSTuSgnKxuoV4xEH7" target="_blank" rel="noopener">Open map</a>
+              <a class="button tertiary" href="https://www.facebook.com/morvakoffi" target="_blank" rel="noopener">Check updates</a>
+            </div>
+          </div>
+
+          <div class="visit-stack">
+            <figure class="map-card motion-card" data-reveal>
+              <img src="assets/morva-find-us-map.png" alt="Morva Koffi location guide showing the route from Barnoon car park toward the cafe" width="799" height="526">
+              <figcaption>Official find-us guide from the Morva Koffi website.</figcaption>
+            </figure>
+
+            <aside class="facts-card motion-card" data-reveal aria-label="Visit facts">
+              <dl>
+                <div><dt>Service</dt><dd>Takeaway only</dd></div>
+                <div><dt>Seating</dt><dd>Small bench outside; public seating near Barnoon car park</dd></div>
+                <div><dt>Coordinates</dt><dd>50.21421, -5.48293</dd></div>
+                <div><dt>Live updates</dt><dd><a href="https://instagram.com/morvakoffi" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/morvakoffi" target="_blank" rel="noopener">Facebook</a></dd></div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="hours-section section-shell" id="hours" aria-labelledby="hours-title">
+        <div class="hours-layout">
+          <div class="hours-copy" data-reveal>
+            <p class="fine-label">Current website-listed hours</p>
+            <h2 id="hours-title">Morning and lunchtime, with weather caveats.</h2>
+            <p>
+              The official site notes that opening and closing can change on heavy rain or high-wind days. Check social media before making a special trip.
+            </p>
+          </div>
+
+          <div class="time-table motion-card" data-reveal>
+            <dl>
+              <div><dt>Monday</dt><dd>9.30 - 13.30</dd></div>
+              <div><dt>Tuesday</dt><dd>9.30 - 13.30</dd></div>
+              <div><dt>Wednesday</dt><dd>9.30 - 13.30</dd></div>
+              <div><dt>Thursday</dt><dd>9.30 - 13.30</dd></div>
+              <div><dt>Friday</dt><dd>9.30 - 13.30</dd></div>
+              <div><dt>Saturday</dt><dd>Closed</dd></div>
+              <div><dt>Sunday</dt><dd>Closed</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section section-shell" id="faq" aria-labelledby="faq-title">
+        <div class="faq-layout">
+          <div class="faq-heading" data-reveal>
+            <p class="fine-label">Before you walk down</p>
+            <h2 id="faq-title">Small shop, useful answers.</h2>
+          </div>
+
+          <div class="faq-list motion-card" data-reveal>
+            <details open>
+              <summary>Do you have indoor seating?</summary>
+              <p>No. Morva Koffi is takeaway only, with a small bench outside and public seating near Barnoon car park.</p>
+            </details>
+            <details>
+              <summary>Do you use local products?</summary>
+              <p>Yes. Cakes and sandwiches use locally sourced ingredients where possible, including named Cornish suppliers.</p>
+            </details>
+            <details>
+              <summary>Are opening times fixed?</summary>
+              <p>They can change with heavy rainfall or high winds. The official site and social media carry same-day updates.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <strong>Morva Koffi</strong>
+          <p>Takeaway seaside coffee, handmade cakes, and savoury bakes near Barnoon in St Ives.</p>
+        </div>
+        <nav aria-label="Footer links">
+          <a href="https://morvakoffi.co.uk/" target="_blank" rel="noopener">Old site</a>
+          <a href="https://www.facebook.com/morvakoffi" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://instagram.com/morvakoffi" target="_blank" rel="noopener">Instagram</a>
+          <a href="research/SOURCES.md">Sources</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

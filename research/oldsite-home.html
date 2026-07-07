@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html >
+<head><meta charset="utf-8">
+<title>Morva Koffi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Home of good tasting coffee and cakes">
+<style type="text/css" id="vuetify-theme-stylesheet">.v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 98,0,238;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 3,218,198;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 189,189,189;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 187,134,252;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 1;
+      --v-theme-secondary: 3,218,197;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 3,218,197;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 0,0,0;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="modulepreload" as="script" crossorigin href="/_nuxt/entry.a06d4032.js"><link rel="preload" as="style" href="/_nuxt/entry.733faba7.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/default.e064f02b.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/nuxt-link.0bf17dae.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/index.7e4aaf2d.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/useAsyncStoryblok.3ae78fac.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/asyncData.cb31dbc5.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Homepage.5e54440a.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Hero.af961f89.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Social.0d5f3c79.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Motd.e965e84b.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Grid.38c5b838.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Promocard.9ee0dd22.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/products.38bbd024.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.e32e0a4c.js"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png"><link rel="stylesheet" href="/_nuxt/entry.733faba7.css"><style>.router-link-exact-active[data-v-d8d608b6]{color:#12b488}.header[data-v-d8d608b6]{font-family:Bolton}</style><style>.hero-title[data-v-fc6a9836]{font-size:24px}.hero-sub-title[data-v-fc6a9836]{font-size:12px}@media screen and (min-width:992px){.hero-title[data-v-fc6a9836]{font-family:Bolton;font-size:36px}.hero-sub-title[data-v-fc6a9836]{font-size:24px}}</style><style>.motd-title[data-v-df8c3337]{font-size:18px}.motd-description[data-v-df8c3337]{font-size:12px;padding-left:1em;padding-right:1em}@media screen and (min-width:992px){.motd-title[data-v-df8c3337]{font-size:24px}.motd-description[data-v-df8c3337]{font-size:18px;padding-left:3em;padding-right:3em}}</style></head>
+<body ><div id="__nuxt"><!--[--><div data-v-d8d608b6><header class="tw-shadow-sm tw-bg-white" data-v-d8d608b6><div class="tw-flex tw-justify-center tw-pt-4 tw-pr-8" data-v-d8d608b6><img class="tw-pr-4" src="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png" alt="" data-v-d8d608b6><span class="header md:tw-text-4xl tw-pt-4 tw-text-green-600" data-v-d8d608b6>Morva Koffi</span></div><nav class="tw-container tw-mx-auto tw-p-2 tw-flex tw-justify-center" data-v-d8d608b6><div data-v-d8d608b6><ul class="tw-flex tw-gap-4" data-v-d8d608b6><li data-v-d8d608b6><a aria-current="page" href="/" class="router-link-active router-link-exact-active tw-text-gray-400" data-v-d8d608b6>HOME</a></li><li data-v-d8d608b6><a href="/menu" class="tw-text-gray-400" data-v-d8d608b6>MENU</a></li><li data-v-d8d608b6><a href="/faq" class="tw-text-gray-400" data-v-d8d608b6>FAQ</a></li><li data-v-d8d608b6><a href="/findus" class="tw-text-gray-400" data-v-d8d608b6>FIND US</a></li></ul></div></nav></header><div class="tw-container tw-mx-auto tw-p-4" data-v-d8d608b6><!--[--><!--[--><div class="tw-px-4"><!--[--><div class="tw-min-h-[200px] md:tw-min-h-[500px] tw-relative tw-flex tw-items-end tw-justify-center tw-my-6 tw-rounded-[5px] tw-overflow-hidden tw-container tw-mx-auto" data-v-fc6a9836><div class="tw-relative tw-z-10 tw-w-full tw-text-center tw-bg-gradient-to-t tw-from-black/70 tw-via-black/50 tw-to-transparent tw-py-6" data-v-fc6a9836><h1 class="hero-title tw-text-white tw-mb-3" data-v-fc6a9836>Locally roasted coffee and homemade cakes.</h1><h2 class="hero-sub-title tw-text-white tw-font-light" data-v-fc6a9836>Take Away Only</h2></div><img src="https://a.storyblok.com/f/219911/2048x1152/b923059b16/hero.jpg" class="tw-absolute tw-top-0 tw-left-0 tw-z-0 tw-w-full tw-h-full tw-object-cover" data-v-fc6a9836></div><div class="tw-flex tw-space-x-6 tw-justify-center"><!--[--><a class="v-btn v-btn--icon v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-text" style="" href="https://www.facebook.com/morvakoffi"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="fa-brands fa-facebook v-icon notranslate v-theme--light v-icon--size-x-large text-blue-darken-2 tw-ml-1 tw-mb-1" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></a><a class="v-btn v-btn--icon v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-text" style="" href="https://instagram.com/morvakoffi?igshid=YmMyMTA2M2Y="><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[--><i class="fa-brands fa-instagram v-icon notranslate v-theme--light v-icon--size-x-large text-red tw-ml-1 tw-mb-1" style="" aria-hidden="true"></i><!--]--><!--]--></span><!----><!----></a><!--]--></div><div class="tw-text-center tw-font-bold" data-v-df8c3337><h2 class="motd-title tw-pb-2" data-v-df8c3337>Home style cakes and bakes made with locally sourced ingredients.</h2><p class="motd-description tw-text-gray-400" data-v-df8c3337>Made with local butter and eggs, all of our cakes are small batch hand made on the premises. Our coffee roasters are based in Penryn and the meat used in our sausage rolls is locally reared .  Our suppliers include Kig and Keus, The Cornish Larder Company, Paul&#39;s Bakery, Trewithen Dairy, Colin Carter&#39;s, Trevaskis Farm butchery and Katjacks.</p></div><div class="tw-container tw-mx-auto tw-grid md:tw-grid-cols-3 sm:tw-grid-cols-2 sm:tw-gap-1 md:tw-gap-4 lg:tw-gap-8 tw-my-4 tw-place-items-baseline"><!--[--><div class="tw-w-full tw-p-4 tw-text-center"><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated tw-mx-auto" style="max-width:350px;"><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="top:0;height:0;--v-progress-linear-height:2px;left:50%;transform:translateX(-50%);" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="v-responsive v-img v-img--booting" style=""><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><div class="v-card-text">All butter Heavy Cake (Hevva).</div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="tw-w-full tw-p-4 tw-text-center"><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated tw-mx-auto" style="max-width:350px;"><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="top:0;height:0;--v-progress-linear-height:2px;left:50%;transform:translateX(-50%);" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="v-responsive v-img v-img--booting" style=""><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><div class="v-card-text">Carrot, Guinness and Apple cake</div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><div class="tw-w-full tw-p-4 tw-text-center"><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated tw-mx-auto" style="max-width:350px;"><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="top:0;height:0;--v-progress-linear-height:2px;left:50%;transform:translateX(-50%);" role="progressbar" aria-hidden="true" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><div class="v-responsive v-img v-img--booting" style=""><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><div class="v-card-text">Homemade sausage rolls made daily.</div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div></div><!--]--></div><!--]--></div><!--]--><!--]--></div></div><!--]--></div><script>window.__NUXT__=(function(a,b,c,d,e,f,g,h,i){g.name="Home";g.created_at="2023-04-11T13:22:08.568Z";g.published_at=b;g.updated_at="2023-11-15T11:32:46.820Z";g.id=290137824;g.uuid="12fdf59d-d4e0-44f4-b18e-7b6ed49c1f8e";g.content={_uid:"291c7cb9-6c7d-4309-ab09-cbf82cccaa0d",body:[{_uid:"a6d8018d-ba58-4ddd-9082-0ff2639dc4d5",image:{id:8008075,alt:a,name:a,focus:a,title:a,filename:"https:\u002F\u002Fa.storyblok.com\u002Ff\u002F219911\u002F2048x1152\u002Fb923059b16\u002Fhero.jpg",copyright:a,fieldtype:e,is_external_url:d},title:"Locally roasted coffee and homemade cakes.",visible:c,subtitle:"Take Away Only",component:"hero",_editable:"\u003C!--#storyblok#{\"name\": \"hero\", \"space\": \"219911\", \"uid\": \"a6d8018d-ba58-4ddd-9082-0ff2639dc4d5\", \"id\": \"290137824\"}--\u003E"},{_uid:"a967d33a-bcf3-407c-9220-50436f083c11",items:[{_uid:"4de62b82-621c-4ec1-92f3-47873aa7a3e6",link:"https:\u002F\u002Fwww.facebook.com\u002Fmorvakoffi",iconname:"fa-brands fa-facebook",component:h,mediatype:"facebook",iconcolour:"blue-darken-2",_editable:"\u003C!--#storyblok#{\"name\": \"socialitem\", \"space\": \"219911\", \"uid\": \"4de62b82-621c-4ec1-92f3-47873aa7a3e6\", \"id\": \"290137824\"}--\u003E"},{_uid:"41e24e0f-c4b1-4e4e-95b1-98f069028ebb",link:"https:\u002F\u002Finstagram.com\u002Fmorvakoffi?igshid=YmMyMTA2M2Y=",iconname:"fa-brands fa-instagram",component:h,mediatype:"instagram",iconcolour:"red",_editable:"\u003C!--#storyblok#{\"name\": \"socialitem\", \"space\": \"219911\", \"uid\": \"41e24e0f-c4b1-4e4e-95b1-98f069028ebb\", \"id\": \"290137824\"}--\u003E"}],caption:a,visible:c,component:"social",_editable:"\u003C!--#storyblok#{\"name\": \"social\", \"space\": \"219911\", \"uid\": \"a967d33a-bcf3-407c-9220-50436f083c11\", \"id\": \"290137824\"}--\u003E"},{_uid:"4dffba3e-bdf3-4e2d-87e7-0cc7f3bb4351",title:"Home style cakes and bakes made with locally sourced ingredients.",visible:c,component:"motd",description:"Made with local butter and eggs, all of our cakes are small batch hand made on the premises. Our coffee roasters are based in Penryn and the meat used in our sausage rolls is locally reared .  Our suppliers include Kig and Keus, The Cornish Larder Company, Paul's Bakery, Trewithen Dairy, Colin Carter's, Trevaskis Farm butchery and Katjacks.",_editable:"\u003C!--#storyblok#{\"name\": \"motd\", \"space\": \"219911\", \"uid\": \"4dffba3e-bdf3-4e2d-87e7-0cc7f3bb4351\", \"id\": \"290137824\"}--\u003E"},{_uid:"fbc3d8c2-0e49-46c7-b777-6ec9f5d329b8",columns:[{_uid:"b85fe7f4-8b0f-47a3-b69d-0f6c640186f0",image:{id:12328462,alt:a,name:a,focus:a,title:a,source:a,filename:"https:\u002F\u002Fa.storyblok.com\u002Ff\u002F219911\u002F3024x4032\u002F1e98e0f711\u002Fheavy-cake.jpg",copyright:a,fieldtype:e,meta_data:{},is_external_url:d},visible:c,component:f,description:"All butter Heavy Cake (Hevva).",_editable:"\u003C!--#storyblok#{\"name\": \"promocard\", \"space\": \"219911\", \"uid\": \"b85fe7f4-8b0f-47a3-b69d-0f6c640186f0\", \"id\": \"290137824\"}--\u003E"},{_uid:"0585f42e-393f-40f8-9f49-de4287997175",image:{id:12539037,alt:a,name:a,focus:a,title:a,source:a,filename:"https:\u002F\u002Fa.storyblok.com\u002Ff\u002F219911\u002F3024x4032\u002F9e9f853296\u002Fthis-weeks-cakes-1.JPG",copyright:a,fieldtype:e,meta_data:{},is_external_url:d},visible:c,component:f,description:"Carrot, Guinness and Apple cake",_editable:"\u003C!--#storyblok#{\"name\": \"promocard\", \"space\": \"219911\", \"uid\": \"0585f42e-393f-40f8-9f49-de4287997175\", \"id\": \"290137824\"}--\u003E"},{_uid:"936fa585-5804-4a0f-b71e-f78fd12d45fa",image:{id:12328477,alt:a,name:a,focus:a,title:a,source:a,filename:"https:\u002F\u002Fa.storyblok.com\u002Ff\u002F219911\u002F3024x4032\u002F4adcc30407\u002Fsausage-rolls.JPG",copyright:a,fieldtype:e,meta_data:{},is_external_url:d},visible:c,component:f,description:"Homemade sausage rolls made daily.",_editable:"\u003C!--#storyblok#{\"name\": \"promocard\", \"space\": \"219911\", \"uid\": \"936fa585-5804-4a0f-b71e-f78fd12d45fa\", \"id\": \"290137824\"}--\u003E"}],component:"grid",_editable:"\u003C!--#storyblok#{\"name\": \"grid\", \"space\": \"219911\", \"uid\": \"fbc3d8c2-0e49-46c7-b777-6ec9f5d329b8\", \"id\": \"290137824\"}--\u003E"}],component:"Homepage",_editable:"\u003C!--#storyblok#{\"name\": \"Homepage\", \"space\": \"219911\", \"uid\": \"291c7cb9-6c7d-4309-ab09-cbf82cccaa0d\", \"id\": \"290137824\"}--\u003E"};g.slug=i;g.full_slug=i;g.sort_by_date=b;g.position=0;g.tag_list=[];g.is_startpage=d;g.parent_id=b;g.meta_data=b;g.group_id="75e38f60-49be-4d25-aacc-94fcba021727";g.first_published_at=b;g.release_id=b;g.lang="default";g.path=b;g.alternates=[];g.default_full_slug=b;g.translated_slugs=b;return {data:{"{\"version\":\"draft\"}home-asyncdata":{data:{story:g,cv:1700051630,rels:[],links:[]},headers:{"cache-control":"max-age=0, private, must-revalidate",connection:"close","content-encoding":"gzip","content-type":"application\u002Fjson; charset=utf-8",date:"Tue, 07 Jul 2026 03:33:52 GMT",etag:"W\u002F\"0aa5eb31596a9b144f492d963d0f97eb\"","referrer-policy":"strict-origin-when-cross-origin","sb-be-version":"5.899.0",server:"nginx\u002F1.29.1","transfer-encoding":"chunked",vary:"Origin,Accept-Encoding",via:"1.1 c6cf91c1274050d33d12227585fc8efc.cloudfront.net (CloudFront)","x-amz-cf-id":"jZdEmaXi2pjDpqzD2sSt2-xbNqZsVu63_cdEuW5kVcdX9Xhbl7Uwqg==","x-amz-cf-pop":"IAD55-P6","x-cache":"RefreshHit from cloudfront","x-content-type-options":"nosniff","x-frame-options":"SAMEORIGIN","x-permitted-cross-domain-policies":"none","x-ratelimit":"\"space-concurrent-requests\";r=29","x-ratelimit-policy":"\"space-concurrent-requests\";q=30","x-request-id":"686ed874-f50b-43fb-b7cd-a496f4109d12","x-runtime":"0.015956","x-xss-protection":"0"}}},state:{"$s{\"version\":\"draft\"}home-state":g},_errors:{},serverRendered:c,config:{public:{storyblok:{accessToken:"dOShLlFuHmP5XI3MBjffIgtt",usePlugin:c,bridge:c,apiOptions:{}}},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:a}}}}("",null,true,false,"asset","promocard",{},"socialitem","home"))</script><script type="module" src="/_nuxt/entry.a06d4032.js" crossorigin></script><script type="module" src="/_nuxt/default.e064f02b.js" crossorigin></script><script type="module" src="/_nuxt/index.7e4aaf2d.js" crossorigin></script><script type="module" src="/_nuxt/Homepage.5e54440a.js" crossorigin></script><script type="module" src="/_nuxt/Hero.af961f89.js" crossorigin></script><script type="module" src="/_nuxt/Social.0d5f3c79.js" crossorigin></script><script type="module" src="/_nuxt/Motd.e965e84b.js" crossorigin></script><script type="module" src="/_nuxt/Grid.38c5b838.js" crossorigin></script><script type="module" src="/_nuxt/Promocard.9ee0dd22.js" crossorigin></script></body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html >
+<head><meta charset="utf-8">
+<title>Morva Koffi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Home of good tasting coffee and cakes">
+<style type="text/css" id="vuetify-theme-stylesheet">.v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 98,0,238;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 3,218,198;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 189,189,189;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 187,134,252;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 1;
+      --v-theme-secondary: 3,218,197;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 3,218,197;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 0,0,0;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="modulepreload" as="script" crossorigin href="/_nuxt/entry.a06d4032.js"><link rel="preload" as="style" href="/_nuxt/entry.733faba7.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/default.e064f02b.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/nuxt-link.0bf17dae.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/findus.2267805f.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/useAsyncStoryblok.3ae78fac.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/asyncData.cb31dbc5.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Finduspage.e92abbb2.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Openingtimes.51041e80.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/WhereAreYou2.e17e32ab.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/products.38bbd024.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.e32e0a4c.js"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/WhereAreYou2.217317a3.png"><link rel="stylesheet" href="/_nuxt/entry.733faba7.css"><style>.router-link-exact-active[data-v-d8d608b6]{color:#12b488}.header[data-v-d8d608b6]{font-family:Bolton}</style><style>.menu[data-v-69609446]{font-family:sans-serif;font-size:14px}.menu-group-heading[data-v-69609446]{border-bottom:2px solid #ccc;margin:0;padding-bottom:1em}.menu-group[data-v-69609446]{display:grid;gap:1.5em;grid-template-columns:1fr;padding:1.5em 0}.menu-item[data-v-69609446]{display:flex}.menu-item-image[data-v-69609446]{flex-shrink:0;height:80px;margin-right:1.5em;-o-object-fit:cover;object-fit:cover;width:80px}</style></head>
+<body ><div id="__nuxt"><!--[--><div data-v-d8d608b6><header class="tw-shadow-sm tw-bg-white" data-v-d8d608b6><div class="tw-flex tw-justify-center tw-pt-4 tw-pr-8" data-v-d8d608b6><img class="tw-pr-4" src="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png" alt="" data-v-d8d608b6><span class="header md:tw-text-4xl tw-pt-4 tw-text-green-600" data-v-d8d608b6>Morva Koffi</span></div><nav class="tw-container tw-mx-auto tw-p-2 tw-flex tw-justify-center" data-v-d8d608b6><div data-v-d8d608b6><ul class="tw-flex tw-gap-4" data-v-d8d608b6><li data-v-d8d608b6><a href="/" class="tw-text-gray-400" data-v-d8d608b6>HOME</a></li><li data-v-d8d608b6><a href="/menu" class="tw-text-gray-400" data-v-d8d608b6>MENU</a></li><li data-v-d8d608b6><a href="/faq" class="tw-text-gray-400" data-v-d8d608b6>FAQ</a></li><li data-v-d8d608b6><a aria-current="page" href="/findus" class="router-link-active router-link-exact-active tw-text-gray-400" data-v-d8d608b6>FIND US</a></li></ul></div></nav></header><div class="tw-container tw-mx-auto tw-p-4" data-v-d8d608b6><!--[--><!--[--><!--[--><h1 class="tw-text-center tw-font-bold tw-text-2xl pb-3">How To Find Us</h1><div class="tw-px-4"><!--[--><div class="tw-w-full" data-v-69609446><div class="tw-text-base" data-v-69609446><h2 class="menu-group-heading" data-v-69609446>Morva Koffi can be found near the bottom left of Barnoon Long Stay car park</h2><div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4" data-v-69609446><div class="menu-item" data-v-69609446><div data-v-69609446><img src="/_nuxt/WhereAreYou2.217317a3.png" alt="" class="pt-4" data-v-69609446></div></div><div data-v-69609446><div class="tw-font-bold pb-2 tw-pt-2" data-v-69609446>Autumn Opening Times</div><!--[--><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Monday</div><div>9.30 - 13.30</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Tuesday</div><div>9.30 - 13.30</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Wednesday</div><div>9.30 - 13.30</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Thursday</div><div>9.30 - 13.30</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Friday</div><div>9.30 - 13.30</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Saturday</div><div>Closed</div></div><div class="tw-grid tw-grid-cols-2" data-v-69609446><div class="tw-text-left">Sunday</div><div>Closed</div></div><!--]--></div></div></div></div><!--]--></div><!--]--><!--]--><!--]--></div></div><!--]--></div><script>window.__NUXT__=(function(a,b,c,d,e,f,g){f.name=e;f.created_at="2023-04-29T14:43:56.308Z";f.published_at="2023-09-11T20:29:49.220Z";f.updated_at="2023-11-10T18:35:30.466Z";f.id=300048974;f.uuid="41f8e5e4-5e25-4979-9d95-c0942473c967";f.content={_uid:"2efa5c37-ca96-49ac-b11b-d302b9a23f14",body:[{_uid:"11a1cb58-05f9-4fd0-8bb7-69e4ff561457",visible:d,component:"openingtimes",description:"Autumn Opening Times",openingitems:[{_uid:"c508d3ac-9c1c-49ad-8e84-2bc2813f2ffa",component:a,openingtime:c,dayoftheweek:"Monday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"c508d3ac-9c1c-49ad-8e84-2bc2813f2ffa\", \"id\": \"300048974\"}--\u003E"},{_uid:"9d3f067e-cd7c-49b6-8f82-7400d02da65a",component:a,openingtime:c,dayoftheweek:"Tuesday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"9d3f067e-cd7c-49b6-8f82-7400d02da65a\", \"id\": \"300048974\"}--\u003E"},{_uid:"c2fdb784-6ee5-4c75-9784-3b38e821ee6b",component:a,openingtime:c,dayoftheweek:"Wednesday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"c2fdb784-6ee5-4c75-9784-3b38e821ee6b\", \"id\": \"300048974\"}--\u003E"},{_uid:"31ac7068-5969-43df-bf0b-89ca640f7d09",component:a,openingtime:c,dayoftheweek:"Thursday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"31ac7068-5969-43df-bf0b-89ca640f7d09\", \"id\": \"300048974\"}--\u003E"},{_uid:"dcde33e0-bd68-43db-ba25-86d5eafeeafc",component:a,openingtime:c,dayoftheweek:"Friday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"dcde33e0-bd68-43db-ba25-86d5eafeeafc\", \"id\": \"300048974\"}--\u003E"},{_uid:"85414272-5a46-439d-baa1-34b643a8f781",component:a,openingtime:g,dayoftheweek:"Saturday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"85414272-5a46-439d-baa1-34b643a8f781\", \"id\": \"300048974\"}--\u003E"},{_uid:"160b3798-bf51-4082-a661-bbe8addac7df",component:a,openingtime:g,dayoftheweek:"Sunday",_editable:"\u003C!--#storyblok#{\"name\": \"openitem\", \"space\": \"219911\", \"uid\": \"160b3798-bf51-4082-a661-bbe8addac7df\", \"id\": \"300048974\"}--\u003E"}],_editable:"\u003C!--#storyblok#{\"name\": \"openingtimes\", \"space\": \"219911\", \"uid\": \"11a1cb58-05f9-4fd0-8bb7-69e4ff561457\", \"id\": \"300048974\"}--\u003E"}],component:"Finduspage",_editable:"\u003C!--#storyblok#{\"name\": \"Finduspage\", \"space\": \"219911\", \"uid\": \"2efa5c37-ca96-49ac-b11b-d302b9a23f14\", \"id\": \"300048974\"}--\u003E"};f.slug=e;f.full_slug=e;f.sort_by_date=b;f.position=-30;f.tag_list=[];f.is_startpage=false;f.parent_id=b;f.meta_data=b;f.group_id="09f49095-14e2-4b58-b1cc-c4e06a980d1b";f.first_published_at="2023-09-11T19:40:54.981Z";f.release_id=b;f.lang="default";f.path=b;f.alternates=[];f.default_full_slug=b;f.translated_slugs=b;return {data:{"{\"version\":\"draft\"}findus-asyncdata":{data:{story:f,cv:1700051630,rels:[],links:[]},headers:{"cache-control":"max-age=0, private, must-revalidate",connection:"close","content-encoding":"gzip","content-type":"application\u002Fjson; charset=utf-8",date:"Tue, 07 Jul 2026 03:33:52 GMT",etag:"W\u002F\"48d933fa3d7e74023f9c7c7223a470c1\"","referrer-policy":"strict-origin-when-cross-origin","sb-be-version":"5.899.0",server:"nginx\u002F1.29.1","transfer-encoding":"chunked",vary:"Origin,Accept-Encoding",via:"1.1 31018efa0f6c4b43ab018b8f561f340a.cloudfront.net (CloudFront)","x-amz-cf-id":"GbL2h0X9vAeSYadGXp8sJom7vnQuMjopXUuPkMRlgBkW3faOo91UfA==","x-amz-cf-pop":"IAD55-P6","x-cache":"RefreshHit from cloudfront","x-content-type-options":"nosniff","x-frame-options":"SAMEORIGIN","x-permitted-cross-domain-policies":"none","x-ratelimit":"\"space-concurrent-requests\";r=29","x-ratelimit-policy":"\"space-concurrent-requests\";q=30","x-request-id":"bf86060d-f9c8-4e90-a1ad-0c365300ee4e","x-runtime":"0.021532","x-xss-protection":"0"}}},state:{"$s{\"version\":\"draft\"}findus-state":f},_errors:{},serverRendered:d,config:{public:{storyblok:{accessToken:"dOShLlFuHmP5XI3MBjffIgtt",usePlugin:d,bridge:d,apiOptions:{}}},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:""}}}}("openitem",null,"9.30 - 13.30",true,"findus",{},"Closed"))</script><script type="module" src="/_nuxt/entry.a06d4032.js" crossorigin></script><script type="module" src="/_nuxt/default.e064f02b.js" crossorigin></script><script type="module" src="/_nuxt/findus.2267805f.js" crossorigin></script><script type="module" src="/_nuxt/Finduspage.e92abbb2.js" crossorigin></script><script type="module" src="/_nuxt/Openingtimes.51041e80.js" crossorigin></script></body>
+</html>

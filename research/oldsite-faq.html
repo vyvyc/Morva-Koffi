@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html >
+<head><meta charset="utf-8">
+<title>Morva Koffi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Home of good tasting coffee and cakes">
+<style type="text/css" id="vuetify-theme-stylesheet">.v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 98,0,238;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 3,218,198;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 189,189,189;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 187,134,252;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 1;
+      --v-theme-secondary: 3,218,197;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 3,218,197;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 0,0,0;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style><link rel="modulepreload" as="script" crossorigin href="/_nuxt/entry.a06d4032.js"><link rel="preload" as="style" href="/_nuxt/entry.733faba7.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/default.e064f02b.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/nuxt-link.0bf17dae.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/faq.8523c0af.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/useAsyncStoryblok.3ae78fac.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/asyncData.cb31dbc5.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Faqpage.e1e5efd8.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Faqcategory.3efc7c99.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/products.38bbd024.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.e32e0a4c.js"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png"><link rel="stylesheet" href="/_nuxt/entry.733faba7.css"><style>.router-link-exact-active[data-v-d8d608b6]{color:#12b488}.header[data-v-d8d608b6]{font-family:Bolton}</style><style>.menu[data-v-62d4522e]{font-family:sans-serif;font-size:14px}.faq-group-heading[data-v-62d4522e]{border-bottom:2px solid #ccc;margin:0;padding-bottom:1em}.faq-group[data-v-62d4522e]{display:grid;gap:1.5em;grid-template-columns:1fr;padding:1.5em 0}.menu-item[data-v-62d4522e]{display:flex}.menu-item-image[data-v-62d4522e]{flex-shrink:0;height:80px;margin-right:1.5em;-o-object-fit:cover;object-fit:cover;width:80px}.menu-item-text[data-v-62d4522e]{flex-grow:1}.menu-item-heading[data-v-62d4522e]{display:flex;justify-content:space-between}.menu-item-name[data-v-62d4522e]{margin-right:1.5em}.menu-item-description[data-v-62d4522e]{line-height:1.6}@media screen and (min-width:992px){.menu[data-v-62d4522e]{font-size:16px}.faq-group[data-v-62d4522e]{grid-template-columns:repeat(1fr)}.menu-item-image[data-v-62d4522e]{height:150px;width:150px}}</style><style>.faq-item[data-v-b29fa831]{display:flex}.faq-item-text[data-v-b29fa831]{flex-grow:1}.faq-item-heading[data-v-b29fa831]{display:flex;justify-content:space-between}.faq-item-question[data-v-b29fa831]{margin-right:1.5em}.faq-item-answer[data-v-b29fa831]{line-height:1.6}@media screen and (min-width:992px){.menu[data-v-b29fa831]{font-size:16px}}</style></head>
+<body ><div id="__nuxt"><!--[--><div data-v-d8d608b6><header class="tw-shadow-sm tw-bg-white" data-v-d8d608b6><div class="tw-flex tw-justify-center tw-pt-4 tw-pr-8" data-v-d8d608b6><img class="tw-pr-4" src="/_nuxt/Morva_Koffi_Cup_20_25_33.5e3f31d0.png" alt="" data-v-d8d608b6><span class="header md:tw-text-4xl tw-pt-4 tw-text-green-600" data-v-d8d608b6>Morva Koffi</span></div><nav class="tw-container tw-mx-auto tw-p-2 tw-flex tw-justify-center" data-v-d8d608b6><div data-v-d8d608b6><ul class="tw-flex tw-gap-4" data-v-d8d608b6><li data-v-d8d608b6><a href="/" class="tw-text-gray-400" data-v-d8d608b6>HOME</a></li><li data-v-d8d608b6><a href="/menu" class="tw-text-gray-400" data-v-d8d608b6>MENU</a></li><li data-v-d8d608b6><a aria-current="page" href="/faq" class="router-link-active router-link-exact-active tw-text-gray-400" data-v-d8d608b6>FAQ</a></li><li data-v-d8d608b6><a href="/findus" class="tw-text-gray-400" data-v-d8d608b6>FIND US</a></li></ul></div></nav></header><div class="tw-container tw-mx-auto tw-p-4" data-v-d8d608b6><!--[--><!--[--><!--[--><h1 class="tw-text-center tw-font-bold tw-text-2xl pb-3">Frequently Asked Questions</h1><div class="tw-px-4"><!--[--><div class="tw-w-full" data-v-62d4522e><h3 class="tw-font-bold faq-group-heading" data-v-62d4522e></h3><div class="faq-group" data-v-62d4522e><!--[--><div class="faq-item" data-v-62d4522e data-v-b29fa831><div class="faq-item-text" data-v-b29fa831><h1 class="faq-item-heading" data-v-b29fa831><span class="faq-item-question tw-font-bold tw-rounded-lg tw-bg-slate-200 tw-px-2 tw-py-2" data-v-b29fa831>What are you opening hours?</span></h1><p class="faq-item-answer px-2 py-2" data-v-b29fa831>This time of year we are open Monday to Friday 9.30 to 13.30.
+As we are take away only, our opening and closing times may alter on days with either heavy rainfall or high winds. If we do plan to open late or close early, our website and social media will have updates.</p></div></div><div class="faq-item" data-v-62d4522e data-v-b29fa831><div class="faq-item-text" data-v-b29fa831><h1 class="faq-item-heading" data-v-b29fa831><span class="faq-item-question tw-font-bold tw-rounded-lg tw-bg-slate-200 tw-px-2 tw-py-2" data-v-b29fa831>Do you have indoor seating?</span></h1><p class="faq-item-answer px-2 py-2" data-v-b29fa831>We are take away only.  However, we do have a small bench outside and there is seating in front of Barnoon car park adjacent to the Tate Gallery.</p></div></div><div class="faq-item" data-v-62d4522e data-v-b29fa831><div class="faq-item-text" data-v-b29fa831><h1 class="faq-item-heading" data-v-b29fa831><span class="faq-item-question tw-font-bold tw-rounded-lg tw-bg-slate-200 tw-px-2 tw-py-2" data-v-b29fa831>Do you use local products?</span></h1><p class="faq-item-answer px-2 py-2" data-v-b29fa831>Our ingredients for our cakes and sandwiches are all sourced from local producers where possible.</p></div></div><!--]--></div></div><!--]--></div><!--]--><!--]--><!--]--></div></div><!--]--></div><script>window.__NUXT__=(function(a,b,c,d,e,f){e.name=c;e.created_at="2023-04-11T13:40:30.786Z";e.published_at=a;e.updated_at="2023-11-15T12:11:56.276Z";e.id=290141777;e.uuid="7d54c863-99ce-44ff-a478-0f813fe39f77";e.content={_uid:"d4f519be-2852-49a6-9f3e-c68a5ae3140e",body:[{_uid:"5fae9a3d-d8ef-43a8-898b-5a82ad779840",title:f,visible:b,faqitems:[{_uid:"521bb663-4a57-47c2-b682-2aa9d142907c",answer:"This time of year we are open Monday to Friday 9.30 to 13.30.\nAs we are take away only, our opening and closing times may alter on days with either heavy rainfall or high winds. If we do plan to open late or close early, our website and social media will have updates.",visible:b,question:"What are you opening hours?",component:d,_editable:"\u003C!--#storyblok#{\"name\": \"faqitem\", \"space\": \"219911\", \"uid\": \"521bb663-4a57-47c2-b682-2aa9d142907c\", \"id\": \"290141777\"}--\u003E"},{_uid:"9a1f37d4-273b-44c7-acee-c50fc641f7e5",answer:"We are take away only.  However, we do have a small bench outside and there is seating in front of Barnoon car park adjacent to the Tate Gallery.",visible:b,question:"Do you have indoor seating?",component:d,_editable:"\u003C!--#storyblok#{\"name\": \"faqitem\", \"space\": \"219911\", \"uid\": \"9a1f37d4-273b-44c7-acee-c50fc641f7e5\", \"id\": \"290141777\"}--\u003E"},{_uid:"699c7436-3925-4435-9f9a-260418f0e083",answer:"Our ingredients for our cakes and sandwiches are all sourced from local producers where possible.",visible:b,question:"Do you use local products?",component:d,_editable:"\u003C!--#storyblok#{\"name\": \"faqitem\", \"space\": \"219911\", \"uid\": \"699c7436-3925-4435-9f9a-260418f0e083\", \"id\": \"290141777\"}--\u003E"}],component:"faqcategory",_editable:"\u003C!--#storyblok#{\"name\": \"faqcategory\", \"space\": \"219911\", \"uid\": \"5fae9a3d-d8ef-43a8-898b-5a82ad779840\", \"id\": \"290141777\"}--\u003E"}],component:"faqpage",_editable:"\u003C!--#storyblok#{\"name\": \"faqpage\", \"space\": \"219911\", \"uid\": \"d4f519be-2852-49a6-9f3e-c68a5ae3140e\", \"id\": \"290141777\"}--\u003E"};e.slug=c;e.full_slug=c;e.sort_by_date=a;e.position=-10;e.tag_list=[];e.is_startpage=false;e.parent_id=a;e.meta_data=a;e.group_id="58854f5c-2153-424d-8dd3-c5e6a82708d2";e.first_published_at=a;e.release_id=a;e.lang="default";e.path=a;e.alternates=[];e.default_full_slug=a;e.translated_slugs=a;return {data:{"{\"version\":\"draft\"}faq-asyncdata":{data:{story:e,cv:1700051630,rels:[],links:[]},headers:{"cache-control":"max-age=0, private, must-revalidate",connection:"close","content-encoding":"gzip","content-type":"application\u002Fjson; charset=utf-8",date:"Tue, 07 Jul 2026 03:33:52 GMT",etag:"W\u002F\"78979642854297b5e0c196a8930a2e7c\"","referrer-policy":"strict-origin-when-cross-origin","sb-be-version":"5.910.1",server:"nginx\u002F1.29.1","transfer-encoding":"chunked",vary:"Origin,Accept-Encoding",via:"1.1 8d260504510dc66e11b489b69c10cb8e.cloudfront.net (CloudFront)","x-amz-cf-id":"nMxKAD0notMwm-wPcsdRI-yRy-I6Jd6YNq2jChq5kDpHADu0mYGy7A==","x-amz-cf-pop":"IAD55-P6","x-cache":"RefreshHit from cloudfront","x-content-type-options":"nosniff","x-frame-options":"SAMEORIGIN","x-permitted-cross-domain-policies":"none","x-ratelimit":"\"space-concurrent-requests\";r=29","x-ratelimit-policy":"\"space-concurrent-requests\";q=30","x-request-id":"dd0bc18f-d5cc-47cd-9a82-68d8700f6193","x-runtime":"0.029036","x-xss-protection":"0"}}},state:{"$s{\"version\":\"draft\"}faq-state":e},_errors:{},serverRendered:b,config:{public:{storyblok:{accessToken:"dOShLlFuHmP5XI3MBjffIgtt",usePlugin:b,bridge:b,apiOptions:{}}},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:f}}}}(null,true,"faq","faqitem",{},""))</script><script type="module" src="/_nuxt/entry.a06d4032.js" crossorigin></script><script type="module" src="/_nuxt/default.e064f02b.js" crossorigin></script><script type="module" src="/_nuxt/faq.8523c0af.js" crossorigin></script><script type="module" src="/_nuxt/Faqpage.e1e5efd8.js" crossorigin></script><script type="module" src="/_nuxt/Faqcategory.3efc7c99.js" crossorigin></script></body>
+</html>
