@@ -663,11 +663,31 @@ section {
   background: var(--salt);
 }
 
+.map-image-link {
+  display: block;
+  background: var(--salt);
+}
+
+.map-image-link img {
+  transition: filter 180ms var(--ease), transform 180ms var(--ease);
+}
+
+.map-image-link:hover img,
+.map-image-link:focus-visible img {
+  filter: saturate(1.05) contrast(1.04);
+  transform: scale(1.01);
+}
+
 .map-card figcaption {
   padding: 0.8rem 1rem;
   color: var(--muted);
   font-size: 0.86rem;
   border-top: 1px solid var(--line);
+}
+
+.map-card figcaption a {
+  color: var(--sea-deep);
+  font-weight: 800;
 }
 
 .facts-card {
