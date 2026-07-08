@@ -1,6 +1,8 @@
 const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const gsapAvailable = typeof window.gsap !== "undefined";
+const hero = document.querySelector("[data-hero]");
+const header = document.querySelector(".site-header");
 
 const showEverything = () => {
   revealItems.forEach((item) => item.classList.add("is-visible"));
@@ -40,7 +42,8 @@ if (navLinks.length && sectionsById.length) {
   };
 
   const getActiveSectionId = () => {
-    const probeY = window.scrollY + Math.min(window.innerHeight * 0.38, 360);
+    const headerOffset = header?.getBoundingClientRect().height || 0;
+    const probeY = window.scrollY + headerOffset + Math.min(window.innerHeight * 0.34, 260);
     return sectionsById.reduce((current, section) => (
       section.offsetTop <= probeY ? section : current
     ), sectionsById[0]).id;
@@ -55,10 +58,17 @@ if (navLinks.length && sectionsById.length) {
     });
   };
 
+  window.addEventListener("hashchange", () => {
+    const hashTarget = window.location.hash && document.querySelector(window.location.hash);
+    if (hashTarget) {
+      setCurrentNav(hashTarget.id);
+      window.setTimeout(queueNavUpdate, 220);
+    }
+  });
   window.addEventListener("scroll", queueNavUpdate, { passive: true });
   window.addEventListener("resize", queueNavUpdate);
-  window.addEventListener("hashchange", queueNavUpdate);
   window.addEventListener("load", queueNavUpdate);
+
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const targetId = link.getAttribute("href").slice(1);
@@ -72,11 +82,12 @@ if (navLinks.length && sectionsById.length) {
     setCurrentNav(hashTarget.id);
   }
 
+  if (!hashTarget) {
+    setCurrentNav(sectionsById[0].id);
+  }
+
   queueNavUpdate();
 }
-
-const hero = document.querySelector("[data-hero]");
-const header = document.querySelector(".site-header");
 
 if (hero && header && "IntersectionObserver" in window) {
   const headerObserver = new IntersectionObserver(

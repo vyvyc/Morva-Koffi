@@ -2,6 +2,8 @@
 
 Captured and referenced on 2026-07-07.
 
+Updated on 2026-07-09 to replace the visible website photography with original generated commercial-style imagery. The generated image prompts are saved in `image-prompts/`; the finished web assets are `assets/morva-hero-generated.jpg` and `assets/morva-counter-bakes.jpg`.
+
 ## Official Site
 
 - Home: https://morvakoffi.co.uk/
@@ -9,14 +11,14 @@ Captured and referenced on 2026-07-07.
 - FAQ: https://morvakoffi.co.uk/faq
 - Find us: https://morvakoffi.co.uk/findus
 
-Used for: site title, tagline, takeaway-only service, menu groups, representative menu items, supplier names, opening hours currently shown by the website, seating FAQ, local-product FAQ, official social links, official hero image, logo image, and find-us map image.
+Used for: site title, tagline, takeaway-only service, menu groups, representative menu items, supplier names, opening hours currently shown by the website, seating FAQ, local-product FAQ, official social links, logo image, and find-us map image.
 
 ## Recent Exterior Photo
 
 - St Ives By The Sea article: https://www.stivesbythesea.co.uk/blogs/st-ives/my-favourite-coffee-shops-in-st-ives-cornwall
 - Image used: https://cdn.shopify.com/s/files/1/1481/3398/files/morva-coffee-st-ives-cornwall.jpg?v=1757189956
 
-Used for: the latest shopfront/exterior hero image and the public address wording "Clodgy View W, St Ives TR26 1JF".
+Used for: recent shopfront/exterior reference research, generated-image direction, and the public address wording "Clodgy View W, St Ives TR26 1JF".
 
 ## Location Cross-check
 

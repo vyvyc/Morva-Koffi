@@ -35,9 +35,9 @@ Use cream only as a navigation/surface support color, never as the whole identit
 
 ## Imagery
 
-- Hero uses the 2025 exterior photo from St Ives By The Sea because the request prioritizes recent shopfront imagery.
-- Old official seascape image is used as a supporting visual texture, not the primary shop proof.
-- Official cup logo and find-us map are used in navigation/location contexts.
+- Hero uses original generated commercial-style shopfront photography based on the researched Morva Koffi location and coastal counter brief.
+- The story section uses a generated counter image with coffee, cakes, and savoury bakes to avoid relying on old scraped photography.
+- Official cup logo and the find-us map image are used in navigation/location contexts; the live map remains an embedded Google Maps iframe.
 
 ## Motion
 
