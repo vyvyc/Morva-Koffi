@@ -1115,8 +1115,8 @@ section {
   }
 
   .visit-copy h2 {
-    max-width: 100%;
-    font-size: clamp(1.28rem, 5.6vw, 1.42rem);
+    max-width: 11ch;
+    font-size: clamp(1.42rem, 6.4vw, 1.7rem);
     line-height: 1.16;
   }
 
