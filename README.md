@@ -13,3 +13,7 @@ python3 -m http.server 8080
 ## Sources
 
 Research notes and archived page captures are in `research/`.
+
+## Image Review
+
+Hero-image authenticity review files are in `review/hero-comparison/`.

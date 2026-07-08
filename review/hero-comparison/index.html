@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Morva Koffi 主图真实性对比</title>
+    <style>
+      :root {
+        --bg: #f4f1e9;
+        --ink: #191512;
+        --muted: #665f52;
+        --line: #cfc7b7;
+        --coffee: #201610;
+        --ok: #27615e;
+        --surface: #fffaf0;
+        --warn: #8b4a21;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Arial, "PingFang SC", "Hiragino Sans GB", sans-serif;
+        line-height: 1.58;
+      }
+
+      main {
+        width: min(1320px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 40px 0 56px;
+      }
+
+      h1,
+      h2 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", "Songti SC", serif;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        max-width: 920px;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+      }
+
+      h2 {
+        font-size: clamp(1.45rem, 2.6vw, 2.45rem);
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .intro {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 32px;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .meta {
+        max-width: 76ch;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .verdict {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+        margin: 28px 0 28px;
+        padding: 22px 24px;
+        background: var(--coffee);
+        color: #fff9ee;
+      }
+
+      .verdict strong {
+        color: #f3c178;
+      }
+
+      .badge {
+        min-width: 190px;
+        padding: 12px 16px;
+        border: 1px solid rgb(255 249 238 / 0.35);
+        text-align: center;
+        font-size: 0.82rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .overview {
+        margin: 0 0 28px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+      }
+
+      .overview img,
+      .comparison img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .overview figcaption,
+      .comparison figcaption {
+        display: grid;
+        gap: 10px;
+        padding: 18px;
+      }
+
+      .comparison {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      figure {
+        margin: 0;
+        background: var(--surface);
+        border: 1px solid var(--line);
+      }
+
+      .comparison figure img {
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+
+      .notes {
+        display: grid;
+        gap: 10px;
+        margin-top: 26px;
+        padding: 22px;
+        background: #fffdf8;
+        border: 1px solid var(--line);
+      }
+
+      .notes ul {
+        margin: 0;
+        padding-left: 1.15rem;
+      }
+
+      .notes li + li {
+        margin-top: 8px;
+      }
+
+      @media (max-width: 820px) {
+        main {
+          width: min(100% - 28px, 720px);
+          padding-top: 28px;
+        }
+
+        .verdict,
+        .comparison {
+          grid-template-columns: 1fr;
+        }
+
+        .badge {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="intro">
+        <p class="label">Morva Koffi · Hero image review</p>
+        <h1>原主图与现主图真实性对比</h1>
+        <p class="meta">
+          原主图取自旧站 Storyblok 海岸 hero；真实外景参考来自公开记录；上一版生成主图用于保留过度包装问题；现主图为 2026-07-09 重新生成的修正版。
+        </p>
+      </section>
+
+      <section class="verdict" aria-label="审查结论">
+        <p>
+          复查结论：上一版生成主图属于 <strong>中到偏高过度包装</strong>；当前修正版保留白墙、三角山墙、圆形标识、遮阳棚和小尺度门窗，
+          包装风险已降到 <strong>低到中等</strong>。它仍是生成图，不应标注为实拍照片。
+        </p>
+        <div class="badge">Current Risk: Low Medium</div>
+      </section>
+
+      <figure class="overview">
+        <img src="hero-overpackaging-review.jpg" alt="旧站原主图、真实外景参考、旧生成过包装图、当前修正版主图四宫格对比">
+        <figcaption>
+          <p class="label">四图总览</p>
+          <h2>旧生成图已降包装，当前主图更接近真实店铺结构。</h2>
+          <p>旧生成图的问题集中在大招牌、开放咖啡窗口、海边道路和室内吧台；修正版改回真实小店体量和 Barnoon 附近步行环境。</p>
+        </figcaption>
+      </figure>
+
+      <section class="comparison" aria-label="主图对比">
+        <figure>
+          <img src="original-old-site-hero.jpg" alt="旧站使用的 St Ives 海岸风景主图">
+          <figcaption>
+            <p class="label">旧站原主图</p>
+            <h2>真实海岸风景，但不是店铺外景。</h2>
+            <p>地点氛围强，但无法直接告诉游客店铺长什么样，也不突出 Barnoon 附近的小店位置。</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="previous-overpackaged-generated-hero.jpg" alt="上一版偏过度包装的生成版 Morva Koffi 主图">
+          <figcaption>
+            <p class="label">上一版生成主图</p>
+            <h2>更像高级咖啡店广告，但外观被明显重塑。</h2>
+            <p>它加入了大横向招牌、开放咖啡窗、室内吧台和更戏剧化的临海道路，容易误导访客对门店规模的预期。</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="current-generated-hero.jpg" alt="当前网站使用的修正版 Morva Koffi 生成主图">
+          <figcaption>
+            <p class="label">当前修正版主图</p>
+            <h2>保留高级摄影质感，但回到真实小店尺度。</h2>
+            <p>修正版使用真实外景作图生图参考，保留白色外墙、三角山墙、圆形标识、遮阳棚和小尺度门窗。</p>
+          </figcaption>
+        </figure>
+
+        <figure>
+          <img src="current-counter-bakes.jpg" alt="当前网站使用的修正版柜台食品生成图">
+          <figcaption>
+            <p class="label">当前柜台辅图</p>
+            <h2>作为氛围图使用，不暗示真实室内陈设。</h2>
+            <p>第二版去掉了可读价格和菜单词，降低了把虚构价格写进图片里的风险。</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="notes" aria-label="建议">
+        <p class="label">建议</p>
+        <ul>
+          <li>当前修正版已保留真实外景的关键结构，适合继续作为提案主图。</li>
+          <li>仍建议向客户说明图片为生成式商业视觉，不是实拍；客户若能提供近期实拍，应优先替换成实拍。</li>
+          <li>旧站海岸图可转为氛围辅图，不建议作为新站主图，因为它不解决“怎么找到店”的核心问题。</li>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
