@@ -632,12 +632,15 @@ section {
 }
 
 .visit-section {
-  padding: clamp(2.25rem, 4vw, 3.25rem) 0 clamp(5.5rem, 9vw, 8.5rem);
+  min-height: calc(100dvh - 74px);
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(5.5rem, 9vw, 8.5rem);
   background: var(--nav);
+  display: grid;
+  align-items: center;
 }
 
 .visit-layout {
-  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1fr);
   align-items: start;
 }
 
@@ -659,8 +662,8 @@ section {
 
 .map-embed {
   position: relative;
-  min-height: 340px;
-  height: min(56vw, 420px);
+  min-height: 360px;
+  height: min(56vw, 470px);
   overflow: hidden;
   background: var(--salt);
 }
@@ -681,23 +684,9 @@ section {
   position: absolute;
   inset: 0;
   border: 0;
-  background: var(--salt);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms var(--ease);
-}
-
-.map-card iframe.is-loaded {
   opacity: 1;
   pointer-events: auto;
-}
-
-.route-card img,
-.map-image-link img {
-  width: 100%;
-  max-height: 420px;
-  object-fit: contain;
-  background: var(--salt);
+  background: transparent;
 }
 
 .route-card summary {
@@ -708,21 +697,6 @@ section {
   font-weight: 900;
   letter-spacing: 0;
   text-transform: uppercase;
-}
-
-.map-image-link {
-  display: block;
-  background: var(--salt);
-}
-
-.map-image-link img {
-  transition: filter 180ms var(--ease), transform 180ms var(--ease);
-}
-
-.map-image-link:hover img,
-.map-image-link:focus-visible img {
-  filter: saturate(1.05) contrast(1.04);
-  transform: scale(1.01);
 }
 
 .map-card figcaption,
@@ -865,7 +839,7 @@ section {
   opacity: 1;
 }
 
-.motion-ready [data-reveal] {
+.motion-ready [data-reveal].is-prepared {
   opacity: 0;
 }
 
@@ -967,6 +941,10 @@ section {
   .menu-panel {
     grid-template-columns: 1fr;
   }
+
+  .visit-section {
+    min-height: auto;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1059,7 +1037,7 @@ section {
   }
 
   .visit-section {
-    padding-top: 2rem;
+    padding-top: 3rem;
   }
 
   .story-copy h2,
@@ -1115,6 +1093,11 @@ section {
   .site-footer nav {
     justify-content: start;
   }
+
+  .map-embed {
+    min-height: 280px;
+    height: 72vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1127,7 +1110,8 @@ section {
     transition-duration: 0.001ms !important;
   }
 
-  .motion-ready [data-reveal] {
+  .motion-ready [data-reveal],
+  .motion-ready [data-reveal].is-prepared {
     opacity: 1;
   }
 }

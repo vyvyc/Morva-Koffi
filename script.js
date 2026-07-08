@@ -6,6 +6,22 @@ const showEverything = () => {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 };
 
+const getHashSection = () => {
+  if (!window.location.hash) return null;
+
+  try {
+    const target = document.querySelector(window.location.hash);
+    return target ? target.closest("section") || target : null;
+  } catch (_error) {
+    return null;
+  }
+};
+
+const getHashRevealItems = () => {
+  const section = getHashSection();
+  return section ? Array.from(section.querySelectorAll("[data-reveal]")) : [];
+};
+
 const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
 const sectionsById = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -247,6 +263,8 @@ if (reduceMotion || !gsapAvailable) {
   };
 
   const prepareRevealTarget = (target) => {
+    target.classList.add("is-prepared");
+
     const profile = revealProfileFor(target);
     gsap.set(target, {
       ...profile.from,
@@ -283,6 +301,7 @@ if (reduceMotion || !gsapAvailable) {
       : null;
 
     target.classList.add("is-visible");
+    target.classList.remove("is-prepared");
 
     const timeline = gsap.timeline({
       defaults: {
@@ -325,7 +344,11 @@ if (reduceMotion || !gsapAvailable) {
   };
 
   if (revealTargets.length && "IntersectionObserver" in window) {
-    revealTargets.forEach(prepareRevealTarget);
+    const hashRevealItems = new Set(getHashRevealItems());
+    const animatedRevealTargets = revealTargets.filter((target) => !hashRevealItems.has(target));
+
+    hashRevealItems.forEach((target) => target.classList.add("is-visible"));
+    animatedRevealTargets.forEach(prepareRevealTarget);
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -338,7 +361,17 @@ if (reduceMotion || !gsapAvailable) {
       { threshold: 0.16, rootMargin: "0px 0px -12% 0px" }
     );
 
-    revealTargets.forEach((target) => revealObserver.observe(target));
+    animatedRevealTargets.forEach((target) => revealObserver.observe(target));
+    window.setTimeout(() => {
+      animatedRevealTargets.forEach((target) => {
+        const rect = target.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight * 0.96 && rect.bottom > window.innerHeight * 0.04;
+        if (isInViewport && target.classList.contains("is-prepared")) {
+          runReveal(target);
+          revealObserver.unobserve(target);
+        }
+      });
+    }, 120);
   } else {
     revealTargets.forEach(runReveal);
   }
