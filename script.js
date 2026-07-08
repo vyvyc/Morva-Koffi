@@ -90,14 +90,6 @@ if (hero && header && "IntersectionObserver" in window) {
 
 const menuTabs = Array.from(document.querySelectorAll("[data-menu-tab]"));
 const menuPanels = Array.from(document.querySelectorAll("[data-menu-panel]"));
-const mapFrame = document.querySelector("[data-map-frame]");
-
-if (mapFrame) {
-  mapFrame.addEventListener("load", () => {
-    mapFrame.classList.add("is-loaded");
-  });
-}
-
 menuTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = tab.dataset.menuTab;
@@ -220,7 +212,7 @@ if (reduceMotion || !gsapAvailable) {
     }
 
     if (target.matches(".route-card")) {
-      return Array.from(target.querySelectorAll("summary, .map-image-link, p"));
+      return Array.from(target.querySelectorAll("summary, p"));
     }
 
     if (target.matches(".faq-list")) {

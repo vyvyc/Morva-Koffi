@@ -150,14 +150,14 @@ button {
 .brand-name {
   color: var(--coffee);
   font-family: var(--display);
-  font-size: clamp(1.18rem, 1.5vw, 1.55rem);
+  font-size: 1.42rem;
   line-height: 1.05;
 }
 
 .site-nav ul {
   display: flex;
   align-items: center;
-  gap: clamp(0.85rem, 2vw, 1.55rem);
+  gap: 1.35rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -251,9 +251,9 @@ section {
   max-width: 690px;
   color: #fff8eb;
   font-family: var(--display);
-  font-size: clamp(3.05rem, 6.1vw, 5.25rem);
+  font-size: 5rem;
   font-weight: 400;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   line-height: 0.96;
   text-wrap: balance;
   text-shadow: 0 2px 26px rgb(0 0 0 / 0.28);
@@ -263,7 +263,7 @@ section {
   max-width: 540px;
   margin-top: 1.45rem;
   color: rgb(255 250 238 / 0.9);
-  font-size: clamp(1rem, 1.4vw, 1.14rem);
+  font-size: 1.1rem;
 }
 
 .hero-actions,
@@ -336,7 +336,7 @@ section {
   display: grid;
   align-content: center;
   gap: 0.2rem;
-  padding: 0.75rem clamp(0.9rem, 2.4vw, 2.4rem);
+  padding: 0.75rem 2rem;
   border-right: 1px solid rgb(255 250 240 / 0.12);
   transition: background 180ms var(--ease);
 }
@@ -359,7 +359,7 @@ section {
 
 .hero-strip strong {
   color: #fffaf0;
-  font-size: clamp(0.76rem, 1.05vw, 0.95rem);
+  font-size: 0.92rem;
   font-weight: 650;
   line-height: 1.35;
 }
@@ -407,9 +407,9 @@ section {
 .faq-heading h2 {
   color: var(--coffee);
   font-family: var(--display);
-  font-size: clamp(2.25rem, 3.8vw, 3.8rem);
+  font-size: 3.35rem;
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.02;
   text-wrap: balance;
 }
@@ -550,9 +550,9 @@ section {
   margin-top: 0.65rem;
   color: #fffaf0;
   font-family: var(--display);
-  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  font-size: 3rem;
   font-weight: 400;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 1.02;
 }
 
@@ -626,14 +626,14 @@ section {
 .supplier-ledger strong {
   color: var(--coffee);
   font-family: var(--display);
-  font-size: clamp(1.35rem, 2.1vw, 2rem);
+  font-size: 1.85rem;
   font-weight: 400;
   line-height: 1.1;
 }
 
 .visit-section {
   min-height: calc(100dvh - 74px);
-  padding: clamp(4rem, 8vw, 7rem) 0 clamp(5.5rem, 9vw, 8.5rem);
+  padding: 5rem 0 7rem;
   background: var(--nav);
   display: grid;
   align-items: center;
@@ -683,6 +683,7 @@ section {
 .map-card iframe {
   position: absolute;
   inset: 0;
+  z-index: 1;
   border: 0;
   opacity: 1;
   pointer-events: auto;
@@ -782,7 +783,7 @@ section {
   cursor: pointer;
   color: var(--coffee);
   font-family: var(--display);
-  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+  font-size: 1.62rem;
   line-height: 1.16;
 }
 
@@ -892,7 +893,7 @@ section {
   }
 
   .hero h1 {
-    font-size: clamp(2.75rem, 10.5vw, 4.15rem);
+    font-size: 4rem;
     max-width: 620px;
   }
 
@@ -902,6 +903,8 @@ section {
 
   .hero-strip a {
     min-height: 72px;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .story-layout,
@@ -944,6 +947,19 @@ section {
 
   .visit-section {
     min-height: auto;
+  }
+
+  .story-copy h2,
+  .section-heading h2,
+  .suppliers-copy h2,
+  .visit-copy h2,
+  .hours-copy h2,
+  .faq-heading h2 {
+    font-size: 2.9rem;
+  }
+
+  .menu-panel h3 {
+    font-size: 2.65rem;
   }
 }
 
@@ -993,7 +1009,7 @@ section {
   }
 
   .hero h1 {
-    font-size: clamp(2.5rem, 13.5vw, 3.4rem);
+    font-size: 3.05rem;
     line-height: 1;
   }
 
@@ -1046,11 +1062,23 @@ section {
   .visit-copy h2,
   .hours-copy h2,
   .faq-heading h2 {
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: 2.45rem;
   }
 
   .visit-copy h2 {
-    font-size: clamp(2rem, 9.2vw, 2.7rem);
+    font-size: 2.3rem;
+  }
+
+  .menu-panel h3 {
+    font-size: 2.22rem;
+  }
+
+  .supplier-ledger strong {
+    font-size: 1.55rem;
+  }
+
+  .faq-list summary {
+    font-size: 1.35rem;
   }
 
   .menu-tabs {
