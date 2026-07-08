@@ -41,39 +41,34 @@ if (navLinks.length && sectionsById.length) {
     });
   };
 
-  const getActiveSectionId = () => {
-    const headerOffset = header?.getBoundingClientRect().height || 0;
-    const probeY = window.scrollY + headerOffset + Math.min(window.innerHeight * 0.34, 260);
-    return sectionsById.reduce((current, section) => (
-      section.offsetTop <= probeY ? section : current
-    ), sectionsById[0]).id;
-  };
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-  let navFrame = null;
-  const queueNavUpdate = () => {
-    if (navFrame) return;
-    navFrame = window.requestAnimationFrame(() => {
-      navFrame = null;
-      setCurrentNav(getActiveSectionId());
+      if (visible) {
+        setCurrentNav(visible.target.id);
+      }
+    }, {
+      rootMargin: "-28% 0px -55% 0px",
+      threshold: [0.12, 0.28, 0.5]
     });
-  };
+
+    sectionsById.forEach((section) => sectionObserver.observe(section));
+  }
 
   window.addEventListener("hashchange", () => {
     const hashTarget = window.location.hash && document.querySelector(window.location.hash);
     if (hashTarget) {
       setCurrentNav(hashTarget.id);
-      window.setTimeout(queueNavUpdate, 220);
     }
   });
-  window.addEventListener("scroll", queueNavUpdate, { passive: true });
-  window.addEventListener("resize", queueNavUpdate);
-  window.addEventListener("load", queueNavUpdate);
 
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       const targetId = link.getAttribute("href").slice(1);
       setCurrentNav(targetId);
-      window.setTimeout(queueNavUpdate, 260);
     });
   });
 
@@ -85,8 +80,6 @@ if (navLinks.length && sectionsById.length) {
   if (!hashTarget) {
     setCurrentNav(sectionsById[0].id);
   }
-
-  queueNavUpdate();
 }
 
 if (hero && header && "IntersectionObserver" in window) {
